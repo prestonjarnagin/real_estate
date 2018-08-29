@@ -35,4 +35,11 @@ class House
     return (price / area).round(2)
   end
 
+  def rooms_sorted_by_area
+    require 'pry'
+    @rooms.sort_by do |room|
+      room.area
+    end.reverse
+  end
+
 end

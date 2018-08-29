@@ -50,7 +50,6 @@ class HouseTest < Minitest::Test
   end
 
   def test_house_can_sort_rooms_by_area
-    skip
     @house.add_room(@room_3)
     @house.add_room(@room_4)
     expected = [@room_4, @room_3, @room_2, @room_1]
