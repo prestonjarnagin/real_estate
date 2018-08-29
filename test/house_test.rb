@@ -7,6 +7,10 @@ class HouseTest < Minitest::Test
 
   def setup
     @house = House.new("$400000", "123 sugar lane")
+    @room_1 = Room.new(:bedroom, 10, 13)
+    @room_2 = Room.new(:bedroom, 11, 15)
+    @room_3 = Room.new(:living_room, 25, 15)
+    @room_4 = Room.new(:basement, 30, 41)
   end
   def test_it_exists
     assert_instance_of House, @house
@@ -22,10 +26,24 @@ class HouseTest < Minitest::Test
 
   def test_house_can_have_rooms
     assert_equal [], @house.rooms
-    room_1 = Room.new(:bedroom, 10, 13)
-    room_2 = Room.new(:bedroom, 11, 15)
-    @house.add_room(room_1)
-    @house.add_room(room_2)
-    assert_equal [room_1, room_2], @house.rooms
+    @house.add_room(@room_1)
+    @house.add_room(@room_2)
+    assert_equal [@room_1, @room_2], @house.rooms
+  end
+
+  def test_can_return_rooms_by_category
+    @house.add_room(@room_1)
+    @house.add_room(@room_2)
+    @house.add_room(@room_3)
+    @house.add_room(@room_4)
+    assert_equal [@room_1, @room_2], @house.rooms_from_category(:bedroom)
+  end
+
+  def test_can_calculate_area
+    @house.add_room(@room_1)
+    @house.add_room(@room_2)
+    @house.add_room(@room_3)
+    @house.add_room(@room_4)
+    assert_equal 1900, @house.area
   end
 end
