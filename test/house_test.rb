@@ -27,6 +27,11 @@ class HouseTest < Minitest::Test
     assert_equal "123 sugar lane", @house.address
   end
 
+  def test_house_has_no_rooms_to_start
+    empty_house = House.new("$400000", "123 sugar lane")
+    assert_equal [], empty_house.rooms
+  end
+
   def test_house_can_have_rooms
     assert_equal [@room_1, @room_2], @house.rooms
   end
@@ -37,7 +42,7 @@ class HouseTest < Minitest::Test
     assert_equal [@room_1, @room_2], @house.rooms_from_category(:bedroom)
   end
 
-  def test_hosue_can_calculate_area
+  def test_house_can_calculate_area
     @house.add_room(@room_3)
     @house.add_room(@room_4)
     assert_equal 1900, @house.area
