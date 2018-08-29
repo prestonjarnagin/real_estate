@@ -22,16 +22,13 @@ class House
 
   def area
     #Inject pattern?
-    x = 0
-    rooms.each do |room|
-      x += room.area
-    end
-    return x
+    rooms.map do |room|
+      room.area
+    end.sum
   end
 
   def price_per_square_foot
-    price = @price.delete('$')
-    price = price.to_f
+    price = @price.delete('$').to_f
     return (price / area).round(2)
   end
 
