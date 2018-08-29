@@ -13,7 +13,7 @@ class RoomTest < Minitest::Test
   end
 
   def test_room_can_have_category
-    assert_equal :bedroom, @room.caregory
+    assert_equal :bedroom, @room.category
   end
 
   def test_room_can_have_area
