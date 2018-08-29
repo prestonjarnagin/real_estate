@@ -29,4 +29,10 @@ class House
     return x
   end
 
+  def price_per_square_foot
+    price = @price.delete('$')
+    price = price.to_f
+    return (price / area).round(2)
+  end
+
 end

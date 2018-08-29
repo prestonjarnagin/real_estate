@@ -28,7 +28,6 @@ class HouseTest < Minitest::Test
   end
 
   def test_house_can_have_rooms
-    assert_equal [], @house.rooms
     assert_equal [@room_1, @room_2], @house.rooms
   end
 
@@ -51,6 +50,7 @@ class HouseTest < Minitest::Test
   end
 
   def test_house_can_sort_rooms_by_area
+    skip
     @house.add_room(@room_3)
     @house.add_room(@room_4)
     expected = [@room_4, @room_3, @room_2, @room_1]
@@ -58,6 +58,7 @@ class HouseTest < Minitest::Test
   end
 
   def test_house_can_sort_rooms_by_category
+    skip
     @house.add_room(@room_3)
     @house.add_room(@room_4)
     expected = {bedroom: [@room_1,@room_2], living_room: [@room_3], basement: [@room_4]}
