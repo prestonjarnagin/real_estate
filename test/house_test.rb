@@ -57,7 +57,6 @@ class HouseTest < Minitest::Test
   end
 
   def test_house_can_sort_rooms_by_category
-    skip
     @house.add_room(@room_3)
     @house.add_room(@room_4)
     expected = {bedroom: [@room_1,@room_2], living_room: [@room_3], basement: [@room_4]}
