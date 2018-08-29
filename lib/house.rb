@@ -21,10 +21,9 @@ class House
   end
 
   def area
-    #Inject pattern?
-    rooms.map do |room|
+    rooms.sum do |room|
       room.area
-    end.sum
+    end
   end
 
   def price_per_square_foot
